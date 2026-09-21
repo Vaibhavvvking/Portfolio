@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vaibhav D | BCA Student</title>
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f8f7ff;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(236, 72, 153, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(124, 58, 237, 0.12), transparent 35%),
+        #080611;
+    overflow-x: hidden;
+}
+
+/* Animated space background */
+
+#spaceBg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    pointer-events: none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 55px 20px 35px;
+    text-align: center;
+    position: relative;
+}
+
+ .profile-circle {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+
+    border: 3px solid rgba(255,255,255,0.3);
+
+    background: #080611;
+
+    box-shadow:
+        0 0 18px rgba(168,85,247,0.65),
+        0 0 35px rgba(236,72,153,0.3);
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+
+@keyframes floating {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+header h1 {
+    margin-top: 22px;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    letter-spacing: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #c084fc,
+        #f472b6,
+        #e879f9
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typing {
+    margin-top: 12px;
+    color: #d8b4fe;
+    font-size: 1.1rem;
+    min-height: 25px;
+}
+
+/* =========================
+   CONTACT LINKS
+========================= */
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #e9d5ff;
+
+    padding: 10px 15px;
+
+    border: 1px solid rgba(216,180,254,0.25);
+    border-radius: 22px;
+
+    background: rgba(168,85,247,0.07);
+
+    font-size: 0.88rem;
+
+    transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: white;
+
+    border-color: #c084fc;
+
+    background: rgba(168,85,247,0.18);
+
+    box-shadow:
+        0 0 18px rgba(168,85,247,0.35);
+
+    transform: translateY(-3px);
+}
+
+.contact-links .resume-link {
+    color: #f472b6;
+    border-color: rgba(244,114,182,0.35);
+}
+
+.contact-links .resume-link:hover {
+    border-color: #f472b6;
+    box-shadow: 0 0 18px rgba(244,114,182,0.35);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    width: 100%;
+    padding: 18px 15px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    background: rgba(8,6,17,0.45);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+nav a {
+    color: #c4b5fd;
+    text-decoration: none;
+
+    padding: 9px 14px;
+    border-radius: 20px;
+
+    font-size: 0.9rem;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+
+    background: rgba(168,85,247,0.16);
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,0.2);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: min(1050px, 92%);
+    margin: auto;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 90px 10px;
+
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+
+    color: #e9d5ff;
+
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a855f7,
+            #ec4899
+        );
+
+    border-radius: 10px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-card {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(216,180,254,0.12);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.2);
+}
+
+.about-card p {
+    color: #d6d3e3;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 20px;
+}
+
+.education-card {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(168,85,247,0.09),
+            rgba(236,72,153,0.04)
+        );
+
+    border:
+        1px solid rgba(216,180,254,0.12);
+
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(216,180,254,0.35);
+
+    box-shadow:
+        0 15px 35px rgba(168,85,247,0.15);
+}
+
+.education-card h3 {
+    color: #f0abfc;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(216,180,254,0.12);
+
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #c084fc;
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,0.13);
+}
+
+.skill-card h3 {
+    margin-bottom: 15px;
+    color: #d8b4fe;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-list span {
+    padding: 7px 11px;
+
+    border-radius: 15px;
+
+    background: rgba(168,85,247,0.10);
+
+    border:
+        1px solid rgba(192,132,252,0.18);
+
+    color: #ddd6fe;
+
+    font-size: 0.85rem;
+}
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.highlight-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 18px;
+}
+
+.highlight {
+    padding: 24px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(216,180,254,0.12);
+
+    color: #d6d3e3;
+
+    line-height: 1.7;
+
+    transition: 0.3s;
+}
+
+.highlight:hover {
+    transform: translateY(-6px);
+
+    background:
+        rgba(168,85,247,0.08);
+
+    border-color:
+        rgba(192,132,252,0.3);
+}
+
+/* =========================
+   STRENGTHS
+========================= */
+
+.strengths {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.strength {
+    padding: 11px 17px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168,85,247,0.13),
+            rgba(236,72,153,0.08)
+        );
+
+    border:
+        1px solid rgba(216,180,254,0.16);
+
+    color: #ede9fe;
+
+    transition: 0.3s;
+}
+
+.strength:hover {
+    transform: scale(1.05);
+
+    border-color: #c084fc;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,0.18);
+}
+
+/* =========================
+   CAREER
+========================= */
+
+.career-card {
+    padding: 35px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168,85,247,0.10),
+            rgba(236,72,153,0.07)
+        );
+
+    border:
+        1px solid rgba(216,180,254,0.15);
+
+    text-align: center;
+}
+
+.career-card p {
+    color: #ddd6fe;
+
+    line-height: 1.9;
+
+    font-size: 1.05rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px 15px;
+
+    color: #8b879b;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+    font-size: 0.85rem;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topBtn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7,
+            #ec4899
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.35);
+}
+
+#topBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#topBtn:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding-top: 40px;
+    }
+
+    .profile-circle {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+
+        border: 2px solid rgba(255,255,255,0.3);
+
+        background: #080611;
+
+        box-shadow:
+            0 0 15px rgba(168,85,247,0.55),
+            0 0 30px rgba(236,72,153,0.25);
+
+        animation: floating 4s ease-in-out infinite;
+    }
+
+    .profile-circle img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 50%;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+    }
+
+    .contact-links a {
+        font-size: 0.78rem;
+        padding: 8px 11px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        font-size: 0.78rem;
+        padding: 8px 9px;
+    }
+
+    section {
+        padding: 65px 5px;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+
+    .about-card,
+    .education-card,
+    .skill-card,
+    .highlight,
+    .career-card {
+        padding: 21px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     SPACE BACKGROUND
+========================= -->
+
+<canvas id="spaceBg"></canvas>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    
+    <div class="profile-circle">
+    <img src="profile.jpeg" alt="Vaibhav D">
+</div>
+
+    <h1>Vaibhav D</h1>
+
+    <div class="typing" id="typing"></div>
+
+
+    <!-- CONTACT LINKS -->
+
+    <div class="contact-links">
+
+        <a href="tel:+919964411144">
+            📞 +91 99644 11144
+        </a>
+        <a>
+            ✉ 
+        vaibhavdhananjay266@gmail.com
+            
+        </a>
+
+        <a
+            href="https://www.linkedin.com/in/vaibhav-dhananjay-35964a31b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            LinkedIn
+        </a>
+
+        <a
+            href="https://github.com/Vaibhavvvking"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ◉ GitHub
+        </a>
+
+        <a
+            href="Vaibhav_D_Resume.pdf"
+            target="_blank"
+            class="resume-link"
+        >
+            📄 Resume
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="#about">About</a>
+
+    <a href="#education">Education</a>
+
+    <a href="#skills">Skills</a>
+
+    <a href="#highlights">Highlights</a>
+
+    <a href="#strengths">Strengths</a>
+
+    <a href="#career">Career</a>
+
+</nav>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="about-card">
+
+        <p>
+            I am a motivated BCA student at REVA University with a strong
+            interest in computer applications, technology and practical
+            learning. I am looking for opportunities to develop my technical
+            skills, gain real-world experience and contribute effectively
+            in an internship or entry-level role.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="education-grid">
+
+        <div class="education-card">
+
+            <h3>BCA – 5th Semester</h3>
+
+            <p>
+                <strong>REVA University, Bengaluru</strong>
+            </p>
+
+            <p>
+                Currently pursuing
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>12th / PUC</h3>
+
+            <p>
+                <strong>REVA PU College</strong>
+            </p>
+
+            <p>
+                69%
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>10th / SSLC</h3>
+
+            <p>
+                <strong>New Excellent English School</strong>
+            </p>
+
+            <p>
+                67%
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TECHNICAL SKILLS -->
+
+<section id="skills">
+
+    <h2>Technical Skills</h2>
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+            <h3>Programming</h3>
+
+            <div class="skill-list">
+
+                <span>C</span>
+                <span>Java</span>
+                <span>Python</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Web Technologies</h3>
+
+            <div class="skill-list">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Core Areas</h3>
+
+            <div class="skill-list">
+
+                <span>Data Structures</span>
+                <span>Operating Systems</span>
+                <span>Computer Networks</span>
+                <span>Software Engineering</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Tools & Platforms</h3>
+
+            <div class="skill-list">
+
+                <span>Eclipse</span>
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>MS Office</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ACADEMIC HIGHLIGHTS -->
+
+<section id="highlights">
+
+    <h2>Academic Highlights</h2>
+
+    <div class="highlight-list">
+
+        <div class="highlight">
+            🎓 Currently pursuing BCA, 5th semester at REVA University.
+        </div>
+
+        <div class="highlight">
+            💻 Academic exposure to programming, web technologies,
+            data structures, operating systems and networking.
+        </div>
+
+        <div class="highlight">
+            🚀 Interested in applying classroom knowledge through projects,
+            internships and collaborative work.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STRENGTHS -->
+
+<section id="strengths">
+
+    <h2>My Strengths</h2>
+
+    <div class="strengths">
+
+        <div class="strength">
+            ⚡ Quick Learner
+        </div>
+
+        <div class="strength">
+            🧠 Problem Solving
+        </div>
+
+        <div class="strength">
+            🤝 Teamwork
+        </div>
+
+        <div class="strength">
+            🔄 Adaptability
+        </div>
+
+        <div class="strength">
+            ⏱ Time Management
+        </div>
+
+        <div class="strength">
+            📚 Willingness to Learn
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAREER OBJECTIVE -->
+
+<section id="career">
+
+    <h2>Career Objective</h2>
+
+    <div class="career-card">
+
+        <p>
+            My goal is to build a technology career by continuously improving
+            my programming and problem-solving skills, gaining industry
+            exposure and contributing to meaningful projects.
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Vaibhav D • BCA Student • REVA University
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn" aria-label="Back to top">
+    ↑
+</button>
+
+
+<script>
+
+/* =========================
+   TYPING ANIMATION
+========================= */
+
+const typingElement =
+    document.getElementById("typing");
+
+const words = [
+    "BCA Student",
+    "Technology Enthusiast",
+    "Aspiring Developer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+
+function typeEffect() {
+
+    const currentWord =
+        words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(
+                0,
+                charIndex + 1
+            );
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1200
+            );
+
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(
+                0,
+                charIndex - 1
+            );
+
+        charIndex--;
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            wordIndex =
+                (wordIndex + 1) %
+                words.length;
+        }
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 55 : 90
+    );
+}
+
+typeEffect();
+
+
+/* =========================
+   SPACE STARS
+========================= */
+
+const canvas =
+    document.getElementById("spaceBg");
+
+const ctx =
+    canvas.getContext("2d");
+
+let stars = [];
+
+function resizeCanvas() {
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+    stars = [];
+
+    const amount =
+        Math.min(
+            180,
+            Math.floor(
+                window.innerWidth *
+                window.innerHeight /
+                9000
+            )
+        );
+
+    for (let i = 0; i < amount; i++) {
+
+        stars.push({
+
+            x:
+                Math.random() *
+                canvas.width,
+
+            y:
+                Math.random() *
+                canvas.height,
+
+            radius:
+                Math.random() *
+                1.5 + 0.3,
+
+            speed:
+                Math.random() *
+                0.35 + 0.05,
+
+            opacity:
+                Math.random() *
+                0.7 + 0.2
+        });
+    }
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+function drawStars() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    stars.forEach(star => {
+
+        star.y += star.speed;
+
+        if (star.y > canvas.height) {
+
+            star.y = 0;
+
+            star.x =
+                Math.random() *
+                canvas.width;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(216,180,254,${star.opacity})`;
+
+        ctx.fill();
+    });
+
+    requestAnimationFrame(drawStars);
+}
+
+drawStars();
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const sections =
+    document.querySelectorAll("section");
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+                }
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+sections.forEach(section => {
+
+    observer.observe(section);
+
+});
+
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
+
+const navLinks =
+    document.querySelectorAll("nav a");
+
+const navObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navLinks.forEach(link => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+                        if (
+                            link.getAttribute(
+                                "href"
+                            ) ===
+                            "#" + entry.target.id
+                        ) {
+
+                            link.classList.add(
+                                "active"
+                            );
+                        }
+
+                    });
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.45
+        }
+    );
+
+
+sections.forEach(section => {
+
+    navObserver.observe(section);
+
+});
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topBtn =
+    document.getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (window.scrollY > 400) {
+
+            topBtn.classList.add("show");
+
+        } else {
+
+            topBtn.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+topBtn.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================
+   NAV CLICK
+========================= */
+
+navLinks.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            navLinks.forEach(item => {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+            link.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
